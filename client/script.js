@@ -11,10 +11,10 @@ function loader(element) {
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
-        element.textContent += '.';
+        element.textContent += 'scooping';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
+        if (element.textContent === 'scoopingscooping') {
             element.textContent = '';
         }
     }, 300);
