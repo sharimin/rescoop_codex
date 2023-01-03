@@ -3,9 +3,7 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 
-dotenv.config();
-
-console.log(process.env.OPENAI_API_KEY)
+dotenv.config()
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -19,7 +17,7 @@ app.use(express.json())
 
 app.get('/', async (req, res) => {
   res.status(200).send({
-    message: 'Hello from Re:SCOOP Codex!'
+    message: 'Hello from CodeX!'
   })
 })
 
@@ -37,13 +35,14 @@ app.post('/', async (req, res) => {
       presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
     });
 
-        res.status(200).send({
-            bot: response.data.choices[0].text
-        })
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ error })
-    }
+    res.status(200).send({
+      bot: response.data.choices[0].text
+    });
+
+  } catch (error) {
+    console.error(error)
+    res.status(500).send(error || 'Something went wrong');
+  }
 })
 
 app.listen(5000, () => console.log('AI server started on https://re-scoop-codex.onrender.com'))
