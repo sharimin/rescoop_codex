@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv);
 
-    const response = await fetch('https://re-scoop-codex-k5aa.onrender.com', {
+    const response = await fetch('https://re-scoop-codex.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
