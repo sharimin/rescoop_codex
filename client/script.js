@@ -1,5 +1,5 @@
-import bot from './assets/bot.svg';
-import user from './assets/user.svg';
+import bot from './assets/bot.png';
+import user from './assets/user.gif';
 
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv);
 
-    const response = await fetch('http://localhost:5000', {
+    const response = await fetch('https://re-scoop-codex-k5aa.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
